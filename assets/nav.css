@@ -1,0 +1,52 @@
+/* Navigation */
+.navbar {
+    display: flex;
+    flex-direction: row;          /* naast elkaar */
+    justify-content: center;      /* centreren */
+    align-items: center;
+    gap: 20px;                    /* ruimte tussen links */
+    background: #f4f1fb;          /* zacht pastel paars */
+    padding: 15px 25px;
+    border-radius: 12px;          /* mooie ronde balk */
+    margin-bottom: 30px;
+    font-family: "Montserrat", "Roboto", sans-serif;
+}
+
+/* Links */
+.navbar li {
+    list-style: none;
+}
+
+.navbar li a {
+    display: block;
+    padding: 10px 18px;
+    background: #ffcad4;        /* zacht wit */
+    color: #f377b3;               
+    font-weight: 600;
+    font-size: 1.4rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.2s ease-in-out;
+}
+
+/* Hover effect */
+.navbar li a:hover {
+    background: #fadde1;          /* lichter paars bij hover */
+     color: #f377b3;
+    transform: translateY(-2px);  /* kleine lift animatie */
+}
+.simple-footer {
+  background-color: #fadde1;  /* roze balk */
+  color: #fff;                 /* witte tekst */
+  text-align: center;
+  padding: 0.5rem 0;           /* hoogte van de balk */
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 -4px 8px rgba(186, 97, 140, 0.5); /* subtiele schaduw */
+  font-weight: 500;
+  width: 100%;                 /* volle breedte */
+  position: fixed;             /* plakt aan het scherm */
+  bottom: 0;                   /* onderkant van het scherm */
+  left: 0;                     /* begint helemaal links */
+  z-index: 1000;               /* boven andere content */
+}
+

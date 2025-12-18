@@ -1,0 +1,195 @@
+/* Basis reset */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
+}
+
+/* Project achtergrond */
+body.project-bg {
+  background-image: url("../train.png");
+  background-size: 1000px;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: top left;
+}
+
+/* ROZE KADER styling */
+.content-main {
+  background-color: #fae6e7;
+  color: #74a12e;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-main:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+/* Gallery container */ 
+.gallery { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 20px; 
+  justify-content: center; 
+}
+/* Overlay / lightbox */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* voor flex layout */
+}
+
+
+/* Sluit knop */
+.overlay .close-btn {
+  position: absolute;       /* <--- t.o.v. overlay-content */
+  top: 10px;
+  right: 10px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #7a143c;
+  cursor: pointer;
+  z-index: 1100;
+}
+/* Grote afbeelding in overlay */
+.overlay-image {
+  width: auto;
+  height: auto;
+  max-width: 60vw;    /* verklein afbeelding tot max 60% van schermbreedte */
+  max-height: 70vh;   /* max 70% van schermhoogte */
+  object-fit: contain;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+  display: block;
+}
+
+.overlay-image {
+  max-width: 60vw;
+  max-height: 70vh;
+}
+/* Gallery container */
+.gallery {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Cards */
+.card {
+  background-color: #fae6e7;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  overflow: hidden;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+}
+
+.card-title {
+  padding: 10px;
+  font-weight: 600;
+  color: #74a12e;
+}
+
+/* Overlay / lightbox */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay-content {
+  position: relative;
+  display: inline-block;
+}
+
+/* Overlay afbeelding */
+.overlay-image {
+  max-width: 90vw;  /* nooit breder dan 90% van scherm */
+  max-height: 90vh; /* nooit hoger dan 90% van scherm */
+  object-fit: contain;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #00000080;
+  display: block;
+}
+
+/* Close knop */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #74a12e;
+  cursor: pointer;
+  z-index: 1100;
+}
+@keyframes footerSlideUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.footer-animated {
+  animation: footerSlideUp 0.8s ease-out forwards;
+}
+@keyframes train-move {
+  0% { transform: translateX(-120px); }
+  100% { transform: translateX(100vw); }
+}
+
+.train-animation {
+  animation: train-move 18s linear infinite;
+}
+
+@keyframes smoke {
+  0% { opacity: 0.6; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-25px) scale(1.4); }
+}
+
+.smoke {
+  animation: smoke 2s ease-out infinite;
+}
+.nav-link {
+  padding: 0.5rem 1rem;
+  background-color: #fde2e8;
+  color: #7a143c;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  background-color: #f9b6c8;
+}
