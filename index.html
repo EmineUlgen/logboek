@@ -7,8 +7,10 @@
   <link rel="stylesheet" href="assets/styles.css">
   <link rel="stylesheet" href="assets/flexboxes.css">
   <link rel="stylesheet" href="assets/nav.css">
-  <link rel="stylesheet" href="assets/typography.css">
-
+  <link rel="stylesheet" href="assets/typography.css"><!-- Google Fonts voor Pinterest-achtige typografie -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&amp;family=Poppins:wght@400;500;600;700&amp;family=Lora:wght@400;600&amp;family=Montserrat:wght@500;700;800&amp;display=swap" rel="stylesheet">
   
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
@@ -16,47 +18,265 @@
   <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
 
  </head>
- <body class="project-bg min-h-screen relative text-gray-800">
-
-    <!-- NAVIGATIE LINKS -->
-    <h2 class="text-xl font-bold mb-4">EmineUlgen GDM1</h2>
-    <ul class="navbar flex flex-col md:flex-row gap-4 md:gap-6 text-lg font-semibold">
-     <li><a href="index.html" class="px-4 py-2 bg-pink-100 text-pink-900 rounded hover:bg-pink-200">Home</a></li>
-     <li><a href="week1.html" class="px-4 py-2 bg-pink-100 text-pink-900 rounded hover:bg-pink-200">Week 1</a></li>
-     <li><a href="week2.html" class="px-4 py-2 bg-pink-100 text-pink-900 rounded hover:bg-pink-200">Week 2</a></li>
-     <li><a href="week3.html" class="px-4 py-2 bg-pink-100 text-pink-900 rounded hover:bg-pink-200">Week 3</a></li>
-     <li><a href="week4.html" class="px-4 py-2 bg-pink-100 text-pink-900 rounded hover:bg-pink-200">Week 4</a></li>
-     <li><a href="week5.html" class="px-4 py-2 bg-pink-100 text-pink-900 rounded hover:bg-pink-200">Week 5</a></li>
-     <li><a href="week6.html" class="px-4 py-2 bg-pink-100 text-pink-900 rounded hover:bg-pink-200">Week 6</a></li>
-     <li><a href="week7.html" class="px-4 py-2 bg-pink-100 text-pink-900 rounded hover:bg-pink-200">Week 7</a></li>
-     <li><a href="week8.html" class="px-4 py-2 bg-pink-100 text-pink-900 rounded hover:bg-pink-200">Week 8</a></li>
-    </ul>
-   </nav>
-   
-
-  <!-- HERO -->
-  <div style="text-align:center; margin-bottom:3rem;">
-    <h1 style="font-size: 2.5rem; font-weight: bold;">Lost in Tra(i)nslation</h1>
-    <h2 style="font-size: 1.5rem; opacity: 0.8;">Meertalige treinborden voor Belgische stations</h2>
-    <p style="max-width: 600px; margin: 1rem auto;">
-      Een reis door 8 weken van ontwerp tot implementatie
-    </p>
-  </div>
-   
-   <!-- OVER HET PROJECT -->
-   <main class="content-main p-10 rounded-xl shadow-md animate-fadeUp mb-8">
-    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;"><span></span> Over Het Project</h3>
-    <p style="margin-bottom: 1rem; line-height: 1.6;">Dit projectdocument volgt mijn proces voor het ontwerpen en coderen van meertalige informatieschermen voor Belgische treinstations. Hier documenteer ik de evolutie van week 1 tot week 8.</p>
-    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem;"><span></span> Wat Je Hier Vindt</h3>
-    <p style="margin-bottom: 1rem; line-height: 1.6;">Op deze website vind je een overzicht per week met mijn ontwerpbeslissingen, typografie, kleuren, witruimte en layout, en de implementatie van de treinborden in HTML &amp; CSS.</p>
-    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem;"><span></span> Leerdoelen</h3>
-    <p style="margin-bottom: 1rem; line-height: 1.6;">Dit project helpt mij niet alleen de technische kant van webontwikkeling te leren, maar ook het proces van UX/UI-design en informatie-architectuur.</p>
-    <div style="text-align: center; margin-top: 2.5rem;"><a href="pdf.pdf" download class="px-6 py-3 bg-green-500 text-white rounded-xl shadow hover:bg-green-600 transition font-bold" style="display: inline-block; text-decoration: none;">  Download ontwerpdocumentatie (PDF) </a>
+ <body class="project-bg min-h-screen relative text-gray-800" style="height: 100%;"><!-- STICKY NAVIGATIE -->
+   <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+    <div class="bg-pink-300 p-6 rounded-xl shadow-md">
+     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+      <h2 class="text-xl font-bold" style="font-family: 'Montserrat', sans-serif;">EmineUlgen GDM1</h2><!-- Taal wissel knoppen -->
+      <div style="display: flex; gap: 0.5rem;"><button onclick="switchLanguage('nl')" id="lang-nl" class="px-3 py-1 bg-pink-500 text-white rounded hover:bg-pink-600 transition font-semibold text-sm" style="border: 2px solid #ec4899; font-family: 'Poppins', sans-serif;"> 🇳🇱 NL </button> <button onclick="switchLanguage('fr')" id="lang-fr" class="px-3 py-1 bg-pink-100 text-pink-900 rounded hover:bg-pink-200 transition font-semibold text-sm" style="font-family: 'Poppins', sans-serif;"> 🇫🇷 FR </button> <button onclick="switchLanguage('en')" id="lang-en" class="px-3 py-1 bg-pink-100 text-pink-900 rounded hover:bg-pink-200 transition font-semibold text-sm" style="font-family: 'Poppins', sans-serif;"> 🇬🇧 EN </button>
+      </div>
+     </div>
+     <ul class="navbar flex flex-col md:flex-row gap-4 md:gap-6 text-lg font-semibold" style="font-family: 'Poppins', sans-serif;">
+      <li><a href="index.html" class="px-4 py-2 bg-pink-100 text-pink-900 rounded hover:bg-pink-200">Home</a></li>
+      <li><a href="week1.html" class="px-4 py-2 bg-pink-100 text-pink-900 rounded hover:bg-pink-200"><span data-translate="week">Week</span> 1</a></li>
+      <li><a href="week2.html" class="px-4 py-2 bg-pink-100 text-pink-900 rounded hover:bg-pink-200"><span data-translate="week">Week</span> 2</a></li>
+      <li><a href="week3.html" class="px-4 py-2 bg-pink-100 text-pink-900 rounded hover:bg-pink-200"><span data-translate="week">Week</span> 3</a></li>
+      <li><a href="week4.html" class="px-4 py-2 bg-pink-100 text-pink-900 rounded hover:bg-pink-200"><span data-translate="week">Week</span> 4</a></li>
+      <li><a href="week5.html" class="px-4 py-2 bg-pink-100 text-pink-900 rounded hover:bg-pink-200"><span data-translate="week">Week</span> 5</a></li>
+      <li><a href="week6.html" class="px-4 py-2 bg-pink-100 text-pink-900 rounded hover:bg-pink-200"><span data-translate="week">Week</span> 6</a></li>
+      <li><a href="week7.html" class="px-4 py-2 bg-pink-100 text-pink-900 rounded hover:bg-pink-200"><span data-translate="week">Week</span> 7</a></li>
+      <li><a href="week8.html" class="px-4 py-2 bg-pink-100 text-pink-900 rounded hover:bg-pink-200"><span data-translate="week">Week</span> 8</a></li>
+     </ul>
     </div>
-   </main>
-  </div>
+   </div>
+  </nav>
+
+  <div style="max-width: 1200px; margin: 0 auto; padding: 2rem 2rem 3rem 2rem;">
+    
+    <!-- HERO SECTIE -->
+   <div style="text-align: center; padding: 4rem 2rem 3rem 2rem;">
+    <h1 style="font-size: 5rem; font-weight: 900; margin-bottom: 1rem; background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1; font-family: 'Playfair Display', serif; animation: bounce 2s infinite;">🚂 Lost in Tra(i)nslation</h1>
+    <h2 style="font-size: 1.8rem; opacity: 0.8; margin-bottom: 1rem; font-weight: 600; font-family: 'Lora', serif; font-style: italic;" data-translate="subtitle">Meertalige treinborden voor Belgische stations</h2>
+    <p style="max-width: 700px; margin: 0 auto; font-size: 1.1rem; opacity: 0.7; font-family: 'Poppins', sans-serif;" data-translate="journey">Een reis door 8 weken van ontwerp tot implementatie</p>
   
-  <!-- FOOTER -->
+    </div><!-- PINTEREST MASONRY GRID -->
+   <div class="masonry-grid">
+    
+    <!-- Kaart 1: Week Overzicht (GROOT) -->
+    <div class="masonry-item fade-in-section" style="background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);">
+     <h3 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem; font-family: 'Montserrat', sans-serif; color: #831843;">Project Tijdlijn</h3>
+     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;"><a href="week1.html" style="text-decoration: none;">
+       <div style="background: white; padding: 1rem; text-align: center; border-radius: 0.75rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="font-size: 2.5rem; font-weight: 900; font-family: 'Montserrat', sans-serif; color: #ec4899;">
+         1
+        </div>
+        <div style="font-size: 0.8rem; opacity: 0.7; font-family: 'Poppins', sans-serif;">
+         Research
+        </div>
+
+       </div></a> <a href="week2.html" style="text-decoration: none;">
+       <div style="background: white; padding: 1rem; text-align: center; border-radius: 0.75rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="font-size: 2.5rem; font-weight: 900; font-family: 'Montserrat', sans-serif; color: #ec4899;">
+         2
+        </div>
+        <div style="font-size: 0.8rem; opacity: 0.7; font-family: 'Poppins', sans-serif;">
+         Concept
+        </div>
+
+       </div></a> <a href="week3.html" style="text-decoration: none;">
+       <div style="background: white; padding: 1rem; text-align: center; border-radius: 0.75rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="font-size: 2.5rem; font-weight: 900; font-family: 'Montserrat', sans-serif; color: #ec4899;">
+         3
+        </div>
+        <div style="font-size: 0.8rem; opacity: 0.7; font-family: 'Poppins', sans-serif;">
+         Design
+        </div>
+
+       </div></a> <a href="week4.html" style="text-decoration: none;">
+       <div style="background: white; padding: 1rem; text-align: center; border-radius: 0.75rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="font-size: 2.5rem; font-weight: 900; font-family: 'Montserrat', sans-serif; color: #ec4899;">
+         4
+        </div>
+        <div style="font-size: 0.8rem; opacity: 0.7; font-family: 'Poppins', sans-serif;">
+         Prototype
+        </div>
+
+       </div></a> <a href="week5.html" style="text-decoration: none;">
+       <div style="background: white; padding: 1rem; text-align: center; border-radius: 0.75rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="font-size: 2.5rem; font-weight: 900; font-family: 'Montserrat', sans-serif; color: #ec4899;">
+         5
+        </div>
+        <div style="font-size: 0.8rem; opacity: 0.7; font-family: 'Poppins', sans-serif;">
+         Development
+        </div>
+
+       </div></a> <a href="week6.html" style="text-decoration: none;">
+       <div style="background: white; padding: 1rem; text-align: center; border-radius: 0.75rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="font-size: 2.5rem; font-weight: 900; font-family: 'Montserrat', sans-serif; color: #ec4899;">
+         6
+        </div>
+        <div style="font-size: 0.8rem; opacity: 0.7; font-family: 'Poppins', sans-serif;">
+         Testing
+        </div>
+
+       </div></a> <a href="week7.html" style="text-decoration: none;">
+       <div style="background: white; padding: 1rem; text-align: center; border-radius: 0.75rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="font-size: 2.5rem; font-weight: 900; font-family: 'Montserrat', sans-serif; color: #ec4899;">
+         7
+        </div>
+        <div style="font-size: 0.8rem; opacity: 0.7; font-family: 'Poppins', sans-serif;">
+         Refinement
+        </div>
+
+       </div></a> <a href="week8.html" style="text-decoration: none;">
+       <div style="background: white; padding: 1rem; text-align: center; border-radius: 0.75rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="font-size: 2.5rem; font-weight: 900; font-family: 'Montserrat', sans-serif; color: #ec4899;">
+         8
+        </div>
+        <div style="font-size: 0.8rem; opacity: 0.7; font-family: 'Poppins', sans-serif;">
+         Finalisatie
+        </div>
+       </div></a>
+     </div>
+
+    </div><!-- Kaart 2: Over Mij -->
+    <div class="masonry-item fade-in-section" style="background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);">
+     <h3 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.75rem; font-family: 'Playfair Display', serif; color: #3730a3;" data-translate="aboutproject">Over Het Project</h3>
+     <p style="line-height: 1.7; font-size: 0.95rem; font-family: 'Poppins', sans-serif; color: #4c1d95;" data-translate="abouttext">Dit projectdocument volgt mijn proces voor het ontwerpen en coderen van meertalige informatieschermen voor Belgische treinstations. Hier documenteer ik de evolutie van week 1 tot week 8.</p>
+   
+     </div><!-- Kaart 3: Stats (KLEIN) -->
+    <div class="masonry-item fade-in-section" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);">
+     <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; font-family: 'Montserrat', sans-serif; color: #92400e;">Project Stats</h3>
+     <div style="display: flex; justify-content: space-around; text-align: center;">
+      <div>
+       <div style="font-size: 2rem; font-weight: 900; color: #b45309; font-family: 'Montserrat', sans-serif;">
+        8
+       </div>
+       <div style="font-size: 0.75rem; opacity: 0.8; font-family: 'Poppins', sans-serif;">
+        Weken
+       </div>
+      </div>
+      <div>
+       <div style="font-size: 2rem; font-weight: 900; color: #b45309; font-family: 'Montserrat', sans-serif;">
+        3
+       </div>
+       <div style="font-size: 0.75rem; opacity: 0.8; font-family: 'Poppins', sans-serif;">
+        Talen
+       </div>
+      </div>
+      <div>
+       <div style="font-size: 2rem; font-weight: 900; color: #b45309; font-family: 'Montserrat', sans-serif;">
+        ♾️
+       </div>
+       <div style="font-size: 0.75rem; opacity: 0.8; font-family: 'Poppins', sans-serif;">
+        Ideas
+       </div>
+      </div>
+     </div>
+  
+     </div><!-- Kaart 4: Wat je vindt -->
+    <div class="masonry-item fade-in-section" style="background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%);">
+     <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 0.75rem; font-family: 'Playfair Display', serif; color: #5b21b6;" data-translate="whatyoufind">Wat Je Hier Vindt</h3>
+     <p style="line-height: 1.6; font-size: 0.9rem; font-family: 'Poppins', sans-serif; color: #6d28d9;" data-translate="whatyoufindtext">Op deze website vind je een overzicht per week met mijn ontwerpbeslissingen, typografie, kleuren, witruimte en layout, en de implementatie van de treinborden in HTML &amp; CSS.</p>
+   
+     </div><!-- Kaart 5: Download (KLEIN) -->
+    <div class="masonry-item fade-in-section" style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); text-align: center;">
+     <h3 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; font-family: 'Montserrat', sans-serif; color: #065f46;">Documentatie</h3><a href="assets/documentatie.pdf" download class="px-5 py-3 bg-green-600 text-white rounded-xl shadow hover:bg-green-700 transition font-bold" style="display: inline-block; text-decoration: none; font-family: 'Poppins', sans-serif; font-size: 0.9rem;"> Download PDF </a>
+   
+     </div><!-- Kaart 6: Tools -->
+    <div class="masonry-item fade-in-section" style="background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);">
+     <h3 style="font-size: 1.7rem; font-weight: 700; margin-bottom: 1rem; font-family: 'Montserrat', sans-serif; color: #9a3412;">Mijn Tools</h3>
+     <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;"><span style="background: white; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 600; font-family: 'Poppins', sans-serif; color: #c2410c;">Figma</span> <span style="background: white; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 600; font-family: 'Poppins', sans-serif; color: #c2410c;">HTML/CSS</span> <span style="background: white; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 600; font-family: 'Poppins', sans-serif; color: #c2410c;">JavaScript</span> <span style="background: white; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 600; font-family: 'Poppins', sans-serif; color: #c2410c;">Adobe XD</span>
+     </div>
+   
+     </div><!-- Kaart 7: Leerdoelen -->
+    <div class="masonry-item fade-in-section" style="background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%);">
+     <h3 style="font-size: 1.9rem; font-weight: 700; margin-bottom: 0.75rem; font-family: 'Playfair Display', serif; color: #991b1b;" data-translate="learninggoals">Leerdoelen</h3>
+     <p style="line-height: 1.6; font-size: 0.9rem; font-family: 'Poppins', sans-serif; color: #b91c1c;" data-translate="learninggoalstext">Dit project helpt mij niet alleen de technische kant van webontwikkeling te leren, maar ook het proces van UX/UI-design en informatie-architectuur.</p>
+    </div>
+   </div>
+  </div>
+ 
+  <script>
+    // Fade-in animatie bij scrollen
+    const fadeInSections = document.querySelectorAll('.fade-in-section');
+    
+    const fadeInObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    fadeInSections.forEach(section => {
+      fadeInObserver.observe(section);
+    });
+
+    // Vertalingen
+    const translations = {
+      nl: {
+        week: 'Week',
+        subtitle: 'Meertalige treinborden voor Belgische stations',
+        journey: 'Een reis door 8 weken van ontwerp tot implementatie',
+        projectjourney: 'Mijn Project Reis',
+        aboutproject: 'Over Het Project',
+        abouttext: 'Dit projectdocument volgt mijn proces voor het ontwerpen en coderen van meertalige informatieschermen voor Belgische treinstations. Hier documenteer ik de evolutie van week 1 tot week 8.',
+        whatyoufind: 'Wat Je Hier Vindt',
+        whatyoufindtext: 'Op deze website vind je een overzicht per week met mijn ontwerpbeslissingen, typografie, kleuren, witruimte en layout, en de implementatie van de treinborden in HTML & CSS.',
+        learninggoals: 'Leerdoelen',
+        learninggoalstext: 'Dit project helpt mij niet alleen de technische kant van webontwikkeling te leren, maar ook het proces van UX/UI-design en informatie-architectuur.',
+        downloadpdf: '📄 Download ontwerpdocumentatie (PDF)'
+      },
+      fr: {
+        week: 'Semaine',
+        subtitle: 'Panneaux de train multilingues pour les gares belges',
+        journey: 'Un voyage de 8 semaines de conception à la mise en œuvre',
+        projectjourney: 'Mon Voyage de Projet',
+        aboutproject: 'À Propos du Projet',
+        abouttext: 'Ce document de projet suit mon processus de conception et de codage d\'écrans d\'information multilingues pour les gares belges. J\'y documente l\'évolution de la semaine 1 à la semaine 8.',
+        whatyoufind: 'Ce Que Vous Trouvez Ici',
+        whatyoufindtext: 'Sur ce site web, vous trouverez un aperçu par semaine de mes décisions de conception, de la typographie, des couleurs, de l\'espace blanc et de la mise en page, ainsi que de l\'implémentation des panneaux de train en HTML & CSS.',
+        learninggoals: 'Objectifs d\'Apprentissage',
+        learninggoalstext: 'Ce projet m\'aide non seulement à apprendre le côté technique du développement web, mais aussi le processus de conception UX/UI et d\'architecture de l\'information.',
+        downloadpdf: '📄 Télécharger la documentation de conception (PDF)'
+      },
+      en: {
+        week: 'Week',
+        subtitle: 'Multilingual train boards for Belgian stations',
+        journey: 'A journey through 8 weeks from design to implementation',
+        projectjourney: 'My Project Journey',
+        aboutproject: 'About The Project',
+        abouttext: 'This project document follows my process of designing and coding multilingual information screens for Belgian train stations. Here I document the evolution from week 1 to week 8.',
+        whatyoufind: 'What You\'ll Find Here',
+        whatyoufindtext: 'On this website you will find a weekly overview of my design decisions, typography, colors, whitespace and layout, and the implementation of the train boards in HTML & CSS.',
+        learninggoals: 'Learning Goals',
+        learninggoalstext: 'This project helps me not only learn the technical side of web development, but also the process of UX/UI design and information architecture.',
+        downloadpdf: '📄 Download design documentation (PDF)'
+      }
+    };
+
+    let currentLanguage = 'nl';
+
+    function switchLanguage(lang) {
+      currentLanguage = lang;
+      
+      // Update alle vertaalbare elementen
+      document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+
+      // Update actieve knop styling
+      ['nl', 'fr', 'en'].forEach(l => {
+        const btn = document.getElementById(`lang-${l}`);
+        if (l === lang) {
+          btn.className = 'px-3 py-1 bg-pink-500 text-white rounded hover:bg-pink-600 transition font-semibold text-sm';
+          btn.style.border = '2px solid #ec4899';
+        } else {
+          btn.className = 'px-3 py-1 bg-pink-100 text-pink-900 rounded hover:bg-pink-200 transition font-semibold text-sm';
+          btn.style.border = 'none';
+        }
+      });
+    }
+    </script>
+    
+    <!-- FOOTER -->
   <footer style="background-color: #f9b6c8; color: #2C3E2E; width: 100%; margin-top: 3rem; padding: 3rem 0;">
    <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;"><!-- Student Info -->
