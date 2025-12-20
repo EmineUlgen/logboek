@@ -193,3 +193,123 @@ body.project-bg {
 .nav-link:hover {
   background-color: #f9b6c8;
 }
+    body {
+      box-sizing: border-box;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Pinterest Masonry Grid */
+    .masonry-grid {
+      column-count: 3;
+      column-gap: 1rem;
+      padding: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .masonry-grid {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .masonry-grid {
+        column-count: 1;
+      }
+    }
+
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .masonry-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+  .site-container {
+  max-width: 1200px;   /* exact zelfde als footer */
+  margin: 0 auto;      /* centreert */
+  padding: 0 1rem;     /* beetje ademruimte op mobiel */
+}
+.masonry-grid {
+  width: 100%;
+  margin: 0 auto;
+}
+    body {
+      box-sizing: border-box;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Pinterest Masonry Grid */
+    .masonry-grid {
+      column-count: 3;
+      column-gap: 1rem;
+      padding: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .masonry-grid {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .masonry-grid {
+        column-count: 1;
+      }
+    }
+
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .masonry-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
